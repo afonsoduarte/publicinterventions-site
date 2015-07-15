@@ -3,15 +3,12 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     sass: {
-      options: {
-        includePaths: ['bower_components/foundation/scss']
-      },
       dist: {
         options: {
           outputStyle: 'compressed'
         },
         files: {
-          'css/app.css': 'scss/app.scss'
+          'css/style.css': 'css/style.scss'
         }        
       }
     },
@@ -27,7 +24,7 @@ module.exports = function(grunt) {
       },
 
       sass: {
-        files: 'scss/**/*.scss',
+        files: 'css/**/*.scss',
         tasks: ['sass'],
         options: {
           livereload: true

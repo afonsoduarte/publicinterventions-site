@@ -1,0 +1,4 @@
+{% if child.is_current %}active{% endif %}
+{% for child in child.children %}
+  {% include 'partials/navigation/active-class.html' with { 'page' : child } %}
+{% endfor %}

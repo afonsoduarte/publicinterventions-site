@@ -1,0 +1,12 @@
+{% if page.children %}
+  <nav class="project-nav">
+    <ul class="parent">  
+  {% for child in page.children %}
+    <li class="{% include "partials/navigation/active-class.html" %}">
+      <a href="{{ child.url }}">{{ child.title }}</a>
+      {% include 'partials/children.html' with { 'page' : child } %}
+    </li>
+  {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

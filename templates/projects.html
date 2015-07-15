@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% for child in page.children %}
+  {% include 'partials/project-snippet.html' %}
+{% endfor %}
+
+{% endblock %}

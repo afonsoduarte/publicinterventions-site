@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+  <article id="{{ page.slug }}">
+    <h1>{{ page.title }}</h1>
+
+    <div class="content">
+    {{ page.content }}
+    {% include 'partials/assets/media.html' %}
+    </div>
+  </article>
+
+{% endblock %}

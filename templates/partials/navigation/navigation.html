@@ -1,7 +1,0 @@
-<ul id="navigation">
-  {% for child in page.root %}  
-    <li class="{{ child.slug }} {% if child.is_current %}active{% endif %}">
-      <a href="{% if child.title == 'Work' %}/{% else %}{{ child.url }}{% endif %}">{{ child.title }}</a>
-    </li> 
-  {% endfor %}
-</ul>

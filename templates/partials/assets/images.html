@@ -1,10 +1,11 @@
+{% if w == false %}{% set w = 675 %}{% endif %}
+{% if h == false %}{% set w = 700 %}{% endif %}
+
+
 <ul class="images">
 {% for image in page.images %}
   <li class="image">
-    <img src="{{ resize_path(image.url, 1000, 800) }}" alt="{{ page.title }}" width="{# image.width #}" height="{# image.height #}" >
-    {% if image.description %}
-      <em>{{ image.description }}</em>
-    {% endif %}
+    <img src="{{ resize_path(image.url, w , h) }}" alt="{{ image.title }}" >
   </li>
 {% endfor %}
 </ul>

@@ -1,0 +1,132 @@
+// Put CSS rules that are the same for all screen sizes here. Think Mobile First™.
+
+body {
+  padding: $baseline 14em;
+
+  line-height: $baseline;
+
+  width: 40em;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+
+  h1 a {
+    border-bottom: none;
+    // text-transform: none;
+    // font-size: 1.05rem;
+  }
+
+  nav {
+    ul {
+      padding: 0;
+      margin: $baseline 0;
+
+      li {
+        display: inline;
+      }
+
+      li:before {
+        content: "\2022 \0020";
+        font-size: .8em;
+      }
+
+      li:first-child:before {
+        content: "";
+      }
+    }
+  }
+}
+
+#sidebar {
+  position: absolute;
+  margin-left: -14em;
+  width: 10em;
+
+  .twtr-widget {
+    a {
+      text-decoration: none !important;
+    }
+  }
+
+  a {
+    border-bottom: none;
+    &:hover {
+      border-bottom: 1px solid;
+    }
+  }
+
+  .parent {
+    margin: 0;
+    padding: 0;
+
+    > li {
+      margin: 0 0 $baseline;
+      padding: 0;
+
+      > a {
+        @extend %title;
+      }
+
+      &.active {
+        a {
+          border-bottom: 1px solid;
+        }
+
+        li a { border-bottom: none; }
+      }
+    }
+  }
+}
+
+.children {
+  display: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin-bottom: 0;
+    margin-left: 1.3em;
+    text-indent: -1.1em;
+
+    &:before {
+      content: "\2014 \0020";
+    }
+  }
+}
+
+.active .children {
+  display: block;
+}
+
+.main-content {
+  margin-top: $baseline;
+}
+
+.media ul {
+  list-style: none; 
+  padding: 0;
+  margin: $baseline 0 0 ;
+
+  &.pdf {
+    margin-top: $baseline;
+  }
+}
+
+.intro-image {
+  margin: $baseline 0;
+}
+
+
+[role="main"] {
+  img {
+    max-width: 100%;
+  }
+}
+
+#about {
+  .image {
+    float: left;
+    margin-left: 1em;
+  }
+}

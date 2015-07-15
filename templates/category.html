@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+{% set page = get('/phantom-railings') %}
+  <nav>
+    <ul>      
+  {% for child in page.children %}
+    <li {% if child.is_current %}class="active"{% endif %}>
+      <a href="{{ child.url }}">{{ child.title }}</a>
+      {% include 'partials/children.html' with { 'page' : child } %}
+    </li>
+  {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}
+
+{% block main %}
+
+  {% for image in page.images %}
+    <img src="{{ resize_path(image.url, 645, 700 ) }}">
+  {% endfor %}
+
+  {{ page.content }}
+
+  {% set page = get('/logos', page.url) %}
+  {% include 'partials/assets/media.html' %}
+
+
+{% endblock %}

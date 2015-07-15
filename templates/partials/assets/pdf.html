@@ -1,0 +1,7 @@
+<ul class="pdf">
+{% for pdf in page.pdf %}
+  <li class="image">
+    <a href="{{ pdf.url }}">{{ pdf.name}}</a>
+  </li>
+{% endfor %}
+</ul>

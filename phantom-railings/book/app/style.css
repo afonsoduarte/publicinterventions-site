@@ -1,0 +1,57 @@
+/***************
+/ BOLD
+/***************/
+@font-face {
+  font-family:"StempelSchneidler";
+  src:url("fonts/09599dd5-6c3a-4fac-8bb2-583a8c7d4c42.eot?iefix") format("eot");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family:"StempelSchneidler";
+  src:url("fonts/09599dd5-6c3a-4fac-8bb2-583a8c7d4c42.eot?iefix");
+  src:url("fonts/d35100cc-6bb3-43b8-a194-cf02986ead79.woff") format("woff"),url("fonts/cd471a01-dc0b-4207-8baf-6d131d18e95a.ttf") format("truetype"),url("fonts/11c82a61-2f4d-43d0-abc8-56ffcd5d7e08.svg#11c82a61-2f4d-43d0-abc8-56ffcd5d7e08") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+/***************
+/ REGULAR ITALIC
+/***************/
+@font-face {
+  font-family:"StempelSchneidler";
+  src:url("fonts/bedd1290-a8f6-4411-8a99-bcaf21a0cafc.eot?iefix") format("eot");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family:"StempelSchneidler";
+  src:url("fonts/bedd1290-a8f6-4411-8a99-bcaf21a0cafc.eot?iefix");
+  src:url("fonts/fed5121f-9be9-4503-9a0c-e7dcd2fe8647.woff") format("woff"),url("fonts/dd85d82d-5214-46aa-bb6a-5b3b1deabb89.ttf") format("truetype"),url("fonts/3ef61619-38d9-4249-aac0-47ee70fbe006.svg#3ef61619-38d9-4249-aac0-47ee70fbe006") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/***************
+/ REGULAR
+/***************/
+@font-face {
+  font-family:"StempelSchneidler";
+  src:url("fonts/7f8aa0e0-c6e0-4af3-bbbb-6fcbe07cc794.eot?iefix") format("eot");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family:"StempelSchneidler";
+  src:url("fonts/7f8aa0e0-c6e0-4af3-bbbb-6fcbe07cc794.eot?iefix");
+  src: url("fonts/6d53ad3c-dc9c-4f68-a5c3-4d0098bbf4f7.woff") format("woff"),url("fonts/ef039195-808f-4c25-8272-61e17af7c01f.ttf") format("truetype"),url("fonts/6798036a-e5cc-4df5-8683-800791ff6fb8.svg#6798036a-e5cc-4df5-8683-800791ff6fb8") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  font-family: "StempelSchneidler", sans-serif;
+}

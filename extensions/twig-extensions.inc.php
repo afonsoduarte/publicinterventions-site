@@ -15,7 +15,8 @@ class Stacey_Twig_Extension extends Twig_Extension {
     return array(
       'absolute' => new Twig_Filter_Method($this, 'absolute'),
       'context' => new Twig_Filter_Method($this, 'context'),
-      'truncate' => new Twig_Filter_Method($this, 'truncate')
+      'truncate' => new Twig_Filter_Method($this, 'truncate'),
+      'last' => new Twig_Filter_Method($this, 'last')
     );
   }
 
@@ -181,6 +182,13 @@ class Stacey_Twig_Extension extends Twig_Extension {
       return substr($value, 0, $length) . $separator;
     }
     return $value;
+  }
+
+  #
+  #   Returns last element of array
+  #
+  function last($object) {
+    return $object[count($object) - 1];
   }
 
 }

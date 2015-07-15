@@ -1,0 +1,5 @@
+{% if page.parents %}
+  {% include 'partials/sidebar-nav-menu.html' with { 'page' : page.parents|last } %}
+{% else %}
+  {% include 'partials/sidebar-nav-menu.html' %}
+{% endif %}

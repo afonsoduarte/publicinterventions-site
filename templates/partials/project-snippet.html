@@ -1,0 +1,11 @@
+<article>
+  <h1><a href="{{ child.url }}">{{ child.title }}</a></h1>
+
+  <a href="{{ child.url }}" class="image-link">
+    <figure>
+      <img src="{{ resize_path(child.thumb.url, 700, 0) }}" alt="{{ child.title }}" >
+      <figcaption>{{ child.blurb }}</figcaption>
+    </figure>
+  </a>
+
+</article>

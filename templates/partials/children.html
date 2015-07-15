@@ -1,0 +1,10 @@
+{% if page.children %}
+  <ul class="children">
+    {% for child in page.children %}
+      <li {% if child.is_current %}class="active"{% endif %}>
+        <a href="{{ child.url }}">{{ child.page_name }}</a>
+        {% include 'partials/children.html' with { 'page' : child } %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
