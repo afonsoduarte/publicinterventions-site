@@ -2,6 +2,10 @@
 
 {% block main %}
 
+{%if page.intro %}
+{{ page.intro }}
+{% endif %}
+
 {% for child in page.children %}
   {% include 'partials/project-snippet.html' %}
 {% endfor %}
