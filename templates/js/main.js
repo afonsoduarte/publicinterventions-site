@@ -14,4 +14,8 @@ $(function() {
     workshopCanvasC = new WorkshopCanvas('workshop-canvas-03', '/content/03.workshop/03.stairs-13.04.13.log.csv', "0000FF");
     workshopCanvasC.init();
   }
+
+  if($('#raphael-score').length > 0) {
+    drawScore();
+  }
 });

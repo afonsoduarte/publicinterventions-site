@@ -1,0 +1,19 @@
+{
+  "name": "Public",
+  "version": "2.3.0",
+  "homepage": "https://github.com/afonsoduarte/publicinterventions-site",
+  "authors": [
+    "Afonso Duarte <afonsomartins@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "raphael": "~2.1.4"
+  }
+}

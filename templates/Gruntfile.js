@@ -16,6 +16,13 @@ module.exports = function(grunt) {
     watch: {
       grunt: { files: ['Gruntfile.js'] },
 
+      js: { 
+        files: ['js/*.js'],
+        options: {
+          livereload: true
+        }
+      },
+
       html: {
         files: ['**/*.html'],
         options: {

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <div id="raphael-score"></div>
+  {% for ogg in page.ogg %}
+    <audio src="/{{ ogg }}"></audio>
+  {% endfor %}
+  {% for html in page.html %}
+    {{ html.content }}
+  {% endfor %}
+{% endblock %}
