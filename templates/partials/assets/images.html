@@ -5,7 +5,7 @@
 <ul class="images">
 {% for image in page.images %}
   <li class="image">
-    <img src="{{ resize_path(image.url, w , h) }}" alt="{{ image.title }}" >
+    <img src="{{ resize_path(image.url, w , h, "0") }}" alt="{{ image.title }}" >
   </li>
 {% endfor %}
 </ul>
