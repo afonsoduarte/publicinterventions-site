@@ -1,6 +1,9 @@
 function drawScore() {
   // CONSTANTS
 
+  // Precision constant to divide Y position by
+  window.precision = 10;
+
   // Paper size: 21cm x 27cm
   // Minus top and bottom margin: 16.6 x 27 cm
   // Paper ratio: 0.6148148148
@@ -33,8 +36,9 @@ function drawScore() {
       projectLabelFrequency = 5,
       timeStampIncrement = 2,
 
-      dots = []
-      dotsByY = [];
+      dots = [],
+      dotsByY = [],
+      dotsByYRounded = [];
 
   // Variables from PHP
   var timeMin = 122484,
@@ -148,7 +152,16 @@ function drawScore() {
           ;
 
       // Store data in object for fast search
-      dotsByY[y] = {"id": i, "xid": Data[i][1], "r": r};
+      dotObj = {"id": i, "xid": Data[i][1], "r": r};
+      dotsByY[y] = dotObj;
+
+      roundedY = Math.round(y/precision);
+
+      // Check if array has already been created
+      if( !dotsByYRounded[roundedY] ) {
+        dotsByYRounded[roundedY] = [];
+      }
+      dotsByYRounded[roundedY].push(dotObj);
 
       // Since paper resizes to fit width, we need to 
       // find its resize ratio
@@ -206,19 +219,21 @@ window.onscroll = function(e) {
 
   barPostion = Math.round(($("body").scrollTop() + 15)/resizeRatio);
 
-  var dot = dotsByY[barPostion];
+  var dotArray = dotsByYRounded[Math.round(barPostion/precision)];
 
-  if(dot) {
+  if(dotArray) {
 
-    var animBack = Raphael.animation({r: dot.r}, 400, "bounce");
+    for (var i = dotArray.length - 1; i >= 0; i--) {
+      var animBack = Raphael.animation({r: dotArray[i].r}, 400, "bounce");
 
-    paper.getById(dot.id).animate(anim).animate(animBack.delay(400));
+      paper.getById(dotArray[i].id).animate(anim).animate(animBack.delay(400));
 
-    audioId = dot.xid;
-    if(dot.xid > 22) audioId = dot.xid - 22;
-    if(dot.xid > 44) audioId = dot.xid - 44;
-    // console.log(dot.xid, audioId);
-    audio[audioId].play();
+      audioId = dotArray[i].xid;
+      if(dotArray[i].xid > 22) audioId = dotArray[i].xid - 22;
+      if(dotArray[i].xid > 44) audioId = dotArray[i].xid - 44;
+      // console.log(dotArray[i].xid, audioId);
+      audio[audioId].play();
+    };
   }
 
 };
