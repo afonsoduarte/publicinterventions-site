@@ -10,3 +10,5 @@ app/_cache/images/*
 logs
 content
 content/*
+node_modules
+node_modules/*
