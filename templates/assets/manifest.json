@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "js/main.js"
+      ],
+      "main": true
+    },
+    "plugins.js": {
+      "files": [
+        "js/plugins.js"
+      ]
+    },
+    "raphael-score.js": {
+      "files": [
+        "js/raphael-score.js"
+      ]
+    },
+    "style.css": {
+      "files": [
+        "css/style.scss"
+      ],
+      "main": true
+    },
+    "jquery.js": {
+      "bower": ["jquery"]
+    },
+    "modernizr.js": {
+      "bower": ["modernizr"]
+    }
+  },
+  "config": {
+    "devUrl": "http://publicinterventions.dev"
+  }
+}

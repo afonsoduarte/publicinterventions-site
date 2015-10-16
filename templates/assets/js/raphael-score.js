@@ -211,7 +211,41 @@ function getClosestValue(a, x) {
 }
 
 var audio = document.getElementsByTagName("audio");
-var anim = Raphael.animation({r: 40}, 400, "backOut");
+
+function enableAudio(element, audio, onEnd){
+  var callback = false,
+      click    = false;
+
+  click = function(e){
+    var forceStop = function () {
+          audio.removeEventListener('play', forceStop, false);
+          audio.pause();
+          element.removeEventListener('touchend', click, false);
+          if(onEnd) onEnd();
+        },
+        progress  = function () {
+          audio.removeEventListener('canplaythrough', progress, false);
+          if (callback) callback();
+        };
+
+    audio.addEventListener('play', forceStop, false);
+    audio.addEventListener('canplaythrough', progress, false);
+    try { 
+      audio.play();
+    } catch (e) {
+      callback = function () {
+        callback = false;
+        audio.play();
+      };
+    }
+  };
+  element.addEventListener('touchend', click, false);
+}
+
+
+for (var i = audio.length - 1; i >= 0; i--) {
+  enableAudio(window.document, audio[i]);
+};
 
 window.onscroll = function(e) {
   // paper.canvas.children[4].attributes[0].value
@@ -224,9 +258,11 @@ window.onscroll = function(e) {
   if(dotArray) {
 
     for (var i = dotArray.length - 1; i >= 0; i--) {
+
+      var anim = Raphael.animation({r: 40}, 400, "backOut");
       var animBack = Raphael.animation({r: dotArray[i].r}, 400, "bounce");
 
-      paper.getById(dotArray[i].id).animate(anim).animate(animBack.delay(400));
+      paper.getById(dotArray[i].id).animate(anim).animate(animBack.delay(300));
 
       audioId = dotArray[i].xid;
       if(dotArray[i].xid > 22) audioId = dotArray[i].xid - 22;
