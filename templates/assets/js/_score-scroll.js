@@ -187,7 +187,7 @@ ScoreScroll = function() {
     }
 
     // Update timestamp
-    var totalSec = Math.round($scrolltop / 28);
+    var totalSec = Math.round(($scrolltop / 39)/resizeRatio);
     var hours = Number(parseInt( totalSec / 3600 ) % 24).pad(2);
     var minutes = Number(parseInt( totalSec / 60 ) % 60).pad(2);
     var seconds = Number(parseInt(totalSec % 60, 10)).pad(2);
