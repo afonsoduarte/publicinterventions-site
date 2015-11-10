@@ -1,3 +1,8 @@
+var $ = jQuery  = require('jquery');
+var utils       = require('./_utils.js');
+var canvasAnimation = require('./_canvas-animation.js');
+var scoreScroll = require('./_score-scroll.js');
+
 $(function() {  
   if($('#myCanvas').length > 0) {
     prCanvas = new CanvasDrawer('myCanvas','/score/data.php');
@@ -16,6 +21,7 @@ $(function() {
   }
 
   if($('#raphael-score').length > 0) {
-    drawScore();
+    score = new ScoreScroll();
+    score.init();
   }
 });

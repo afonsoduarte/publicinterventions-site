@@ -1,8 +1,3 @@
-// Pad numbers
-Number.prototype.pad = function (len) {
-    return (new Array(len+1).join("0") + this).slice(-len);
-}
-
 CanvasDrawer = function(id, dataSource) {
 
     var that = this;

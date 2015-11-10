@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block main %}
-  <div id="raphael-score"></div>
+  <div id="raphael-score" data-timestamp="00:00:00"></div>
   {% for ogg in page.ogg %}
     <audio>
       <source src="/{{ ogg }}" type="audio/ogg" />

@@ -5,8 +5,10 @@
 
   &:before {
     position: fixed;
-    content: "";
+    content: attr(data-timestamp);
     width: 100%;
     border-bottom: 1px solid red;
   }
+
+  margin-bottom: 80vh;
 }
