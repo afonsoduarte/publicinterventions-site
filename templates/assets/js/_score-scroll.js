@@ -7,7 +7,7 @@ ScoreScroll = function() {
 
   this.init = function() {
     that.drawScore();
-    $(window).bind( 'scroll', throttle.Cowboy.throttle( 20, that.scoreScrollAnimation ) );
+    $(window).bind( 'scroll', throttle.Cowboy.throttle( 200, that.scoreScrollAnimation ) );
     // $(window).bind('scroll', that.scoreScrollAnimation);
   }
 
@@ -195,6 +195,13 @@ ScoreScroll = function() {
     // 0 > 26000 (600s)
     $('#raphael-score').attr('data-timestamp', positiontimestamp );
   };
+}
+
+document.body.onkeyup = function(e){
+  if(e.keyCode == 86){ //spacebar
+    e.preventDefault();
+    $('html,body').animate({ 'scrollTop': '+=31200'}, 900000, 'linear');
+  }
 }
 
 var audio = document.getElementsByTagName("audio");
