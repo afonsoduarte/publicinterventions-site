@@ -260,9 +260,6 @@ ScoreScroll = function() {
             
         date = new Date("October 31, 2013 13:00:00");
 
-
-
-
     // Creates canvas 
     window.paper = Raphael("raphael-score");
     paper.setViewBox(0,0,paperWidth,paperHeight,true);
@@ -394,9 +391,32 @@ ScoreScroll = function() {
 }
 
 document.body.onkeyup = function(e){
-  if(e.keyCode == 86){ //spacebar
+  if(e.keyCode == 86){ // letter "v"
     e.preventDefault();
-    $('html,body').animate({ 'scrollTop': '+=31200'}, 900000, 'linear');
+    autoscroll.start();
+  }
+  if(e.keyCode == 80){ // letter "p"
+    e.preventDefault();
+    autoscroll.stop();
+  }
+}
+
+autoscroll = {
+  start: function() {
+    var $body = $('html,body'),
+        height = $('#raphael-score').height();
+    $body.animate(
+      {'scrollTop': '+=' + height}, 
+      14 * 60000, 
+      'linear', 
+      function() {
+        $body.scrollTop(0);
+        autoscroll();
+      }
+    );
+  },
+  stop: function() {
+    $('html,body').stop();
   }
 }
 
