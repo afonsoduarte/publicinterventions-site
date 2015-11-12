@@ -215,7 +215,7 @@ autoscroll = {
       'linear', 
       function() {
         $body.scrollTop(0);
-        autoscroll();
+        autoscroll.start();
       }
     );
   },
