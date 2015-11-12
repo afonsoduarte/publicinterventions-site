@@ -407,7 +407,7 @@ autoscroll = {
         height = $('#raphael-score').height();
     $body.animate(
       {'scrollTop': '+=' + height}, 
-      0.25 * 60000, 
+      14 * 60000, 
       'linear', 
       function() {
         $body.scrollTop(0);
