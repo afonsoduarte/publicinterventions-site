@@ -38,7 +38,7 @@ ScoreScroll = function() {
         // 8 spreads total
 
         timeToSkip = 0,
-        timeDivider = 20,
+        timeDivider = 5000, //20,
         baseline = 20, // line every 33px, ie, 1 sec
         gridSize = 400, // 6 big lines per spread: 2400/6 = 400
         gridOffset = 200; // push big lines to middle of page
@@ -54,15 +54,8 @@ ScoreScroll = function() {
         dotsByYRounded = [];
 
     // Variables from PHP
-    var timeMin = 122484,
-        timeMax = 1123019,
-        idMin = 1,
-        idMax = 53,
-        soundMin = 1,
-        soundMax = 24;
-        // date = new Date("October "+dayOfTheMonth+", 2012 11:50:00"),
-            
-        date = new Date("October 31, 2013 13:00:00");
+    var idMax = 53,
+        date = new Date("October 31, 2013 14:00:00");
 
     // Creates canvas 
     window.paper = Raphael("raphael-score");
@@ -84,21 +77,13 @@ ScoreScroll = function() {
     // Draw score
     var temp_max = Data.length;
     for(var i = 0; i < temp_max ; i++) {
-      time += Data[i][0];
+      // For relative timestamps
+      // time += Data[i][0];
 
-      switch (i) {
-        case 19:
-          timeToSkip = 43200000 - (1000 * 60 * 60 * 2); 
-          break;
-        case 21:
-          timeToSkip = 43200000 - (1000 * 60 * 60 * 6);
-          break;
-        default:
-          timeToSkip = 43200000;
-          break;
-      }
+      // For absolute timestamps
+      time += Data[i][0] - Data[0][0] + 50000;
 
-       timeToSkip = 120000; 
+      timeToSkip =   Data[0][0];//120000; 
 
       //Start at noon
       if( time < timeToSkip ) continue;
