@@ -24,7 +24,7 @@ ScoreScroll = function() {
     // Therefore, width needs to be 2000 * 0.6148148148 ~= 1230
 
     var paperWidth = 1475,
-        paperHeight = 2400 * 15,
+        paperHeight = 2400 * 150,
         paperRatio = paperWidth/paperHeight,
         paddingLeft = 0, 
         paddingRight = 0,
@@ -38,7 +38,7 @@ ScoreScroll = function() {
         // 8 spreads total
 
         timeToSkip = 0,
-        timeDivider = 5000, //20,
+        timeDivider = 50000, //20,
         baseline = 20, // line every 33px, ie, 1 sec
         gridSize = 400, // 6 big lines per spread: 2400/6 = 400
         gridOffset = 200; // push big lines to middle of page
