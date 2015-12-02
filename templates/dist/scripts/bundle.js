@@ -220,7 +220,7 @@ ScoreScroll = function() {
     // Therefore, width needs to be 2000 * 0.6148148148 ~= 1230
 
     var paperWidth = 1475,
-        paperHeight = 2400 * 150,
+        paperHeight = 2400 * 22,
         paperRatio = paperWidth/paperHeight,
         paddingLeft = 0, 
         paddingRight = 0,
@@ -234,7 +234,7 @@ ScoreScroll = function() {
         // 8 spreads total
 
         timeToSkip = 0,
-        timeDivider = 50000, //20,
+        timeDivider = 40000, //20,
         baseline = 20, // line every 33px, ie, 1 sec
         gridSize = 400, // 6 big lines per spread: 2400/6 = 400
         gridOffset = 200; // push big lines to middle of page
@@ -277,7 +277,7 @@ ScoreScroll = function() {
       // time += Data[i][0];
 
       // For absolute timestamps
-      time += Data[i][0] - Data[0][0] + 50000;
+      time += Data[i][0] - Data[0][0];
 
       timeToSkip =   Data[0][0];//120000; 
 
@@ -285,8 +285,9 @@ ScoreScroll = function() {
       if( time < timeToSkip ) continue;
         
         var id = refactoredIds.indexOf(Data[i][1]),
+            padding = 50,
             x = ((paperWidth-20-paddingLeft-paddingRight)/refactoredIds.length) * (id + 1) + (paddingLeft), // 
-            y = Math.round((Data[i][0] + time - timeToSkip)/timeDivider),
+            y = Math.round((Data[i][0] + time - timeToSkip)/timeDivider) + padding,
             time = time,
             r = (Data[i][2] / 2.5) + 4,
             // col = "hsl("+(Data[i][2]*4)/100+", 0.5, 0.5)"; //COLOUR
