@@ -24,7 +24,7 @@ ScoreScroll = function() {
     // Therefore, width needs to be 2000 * 0.6148148148 ~= 1230
 
     var paperWidth = 1475,
-        paperHeight = 2400 * 16,
+        paperHeight = 2400 * 15,
         paperRatio = paperWidth/paperHeight,
         paddingLeft = 0, 
         paddingRight = 0,
