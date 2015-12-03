@@ -24,7 +24,7 @@ ScoreScroll = function() {
     // Therefore, width needs to be 2000 * 0.6148148148 ~= 1230
 
     var paperWidth = 1475,
-        paperHeight = 2400 * 22,
+        paperHeight = 2400 * 16,
         paperRatio = paperWidth/paperHeight,
         paddingLeft = 0, 
         paddingRight = 0,
@@ -38,7 +38,7 @@ ScoreScroll = function() {
         // 8 spreads total
 
         timeToSkip = 0,
-        timeDivider = 40000, //20,
+        timeDivider = 55000, //20,
         baseline = 20, // line every 33px, ie, 1 sec
         gridSize = 400, // 6 big lines per spread: 2400/6 = 400
         gridOffset = 200; // push big lines to middle of page
@@ -83,13 +83,16 @@ ScoreScroll = function() {
       // For absolute timestamps
       time += Data[i][0] - Data[0][0];
 
-      timeToSkip =   Data[0][0];//120000; 
+      timeToSkip = Data[280][0] ; //120000; 
+      // Skip the beginning, start at dot 280
+      if( Data[i][0] > timeToSkip ) {
 
-      //Start at noon
-      if( time < timeToSkip ) continue;
+        if(i < 300) {
+          console.log(time, timeToSkip);
+        }
         
         var id = refactoredIds.indexOf(Data[i][1]),
-            padding = 50,
+            padding = 0,
             x = ((paperWidth-20-paddingLeft-paddingRight)/refactoredIds.length) * (id + 1) + (paddingLeft), // 
             y = Math.round((Data[i][0] + time - timeToSkip)/timeDivider) + padding,
             time = time,
@@ -116,11 +119,12 @@ ScoreScroll = function() {
             .attr("stroke", col)
 
             // Sets text
-            .data({"col": col ,"id": Data[i][1], "x": x, "y": y, "i": i, "r": r, "time": time/1000 })
+            .data({"col": col ,"id": Data[i][1], "timestamp": Data[i][0], "x": x, "y": y, "i": i, "r": r, "time": time/1000 })
             .click(function (e) {
-              console.log("i:" + this.data("i"), "y:" + this.data("y"), "x:" + this.data("x"), "xid:" + this.data("id"), "r:" + this.data("r"));
+              console.log(this.data());
             })
             ;
+
 
         // Store data in object for fast search
         dotObj = {"id": i, "xid": Data[i][1], "r": r};
@@ -137,6 +141,7 @@ ScoreScroll = function() {
         // Since paper resizes to fit width, we need to 
         // find its resize ratio
         resizeRatio = ($("#raphael-score").height())/( paperHeight );
+      }
     }
   }
 
