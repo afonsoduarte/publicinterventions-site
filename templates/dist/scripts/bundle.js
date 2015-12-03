@@ -222,6 +222,8 @@ ScoreScroll = function() {
     var paperWidth = 1475,
         paperHeight = 2400 * 15.9,
         paperRatio = paperWidth/paperHeight,
+        totalMin = 17.7, // duration in min of score 
+        timeHeightRatio = that.timeHeightRatio = paperHeight/(totalMin * 60), //39;
         paddingLeft = 0, 
         paddingRight = 0,
         notWorkingSensors = [],//[4,5,6,7,10,11,14,15,16,20,21,23,28,30,31,32,36,38,40,41,45,46,49,50],
@@ -368,7 +370,8 @@ ScoreScroll = function() {
     }
 
     // Update timestamp
-    var totalSec = Math.round(($scrolltop / 39)/resizeRatio);
+
+    var totalSec = Math.round(($scrolltop / that.timeHeightRatio)/resizeRatio);
     var hours = Number(parseInt( totalSec / 3600 ) % 24).pad(2);
     var minutes = Number(parseInt( totalSec / 60 ) % 60).pad(2);
     var seconds = Number(parseInt(totalSec % 60, 10)).pad(2);
@@ -395,7 +398,7 @@ autoscroll = {
         height = $('#raphael-score').height();
     $body.animate(
       {'scrollTop': '+=' + height}, 
-      16 * 60000, 
+      17 * 60000, 
       'linear', 
       function() {
         $body.scrollTop(0);
