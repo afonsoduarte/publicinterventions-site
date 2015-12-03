@@ -24,7 +24,7 @@ ScoreScroll = function() {
     // Therefore, width needs to be 2000 * 0.6148148148 ~= 1230
 
     var paperWidth = 1475,
-        paperHeight = 2400 * 15,
+        paperHeight = 2400 * 15.9,
         paperRatio = paperWidth/paperHeight,
         paddingLeft = 0, 
         paddingRight = 0,
@@ -199,7 +199,7 @@ autoscroll = {
         height = $('#raphael-score').height();
     $body.animate(
       {'scrollTop': '+=' + height}, 
-      14 * 60000, 
+      15 * 60000, 
       'linear', 
       function() {
         $body.scrollTop(0);
