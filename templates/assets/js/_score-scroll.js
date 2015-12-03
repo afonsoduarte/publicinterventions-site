@@ -75,7 +75,8 @@ ScoreScroll = function() {
     }
 
     // Draw score
-    var temp_max = Data.length;
+    var temp_max = Data.length,
+        dotCounter = 0;
     for(var i = 0; i < temp_max ; i++) {
       // For relative timestamps
       // time += Data[i][0];
@@ -87,14 +88,13 @@ ScoreScroll = function() {
       // Skip the beginning, start at dot 280
       if( Data[i][0] > timeToSkip ) {
 
-        if(i < 300) {
-          console.log(time, timeToSkip);
-        }
+        dotCounter++;
         
         var id = refactoredIds.indexOf(Data[i][1]),
             padding = 0,
             x = ((paperWidth-20-paddingLeft-paddingRight)/refactoredIds.length) * (id + 1) + (paddingLeft), // 
             y = Math.round((Data[i][0] + time - timeToSkip)/timeDivider) + padding,
+            roundedY = Math.round(y/precision),
             time = time,
             r = (Data[i][2] / 2.5) + 4,
             // col = "hsl("+(Data[i][2]*4)/100+", 0.5, 0.5)"; //COLOUR
@@ -119,18 +119,15 @@ ScoreScroll = function() {
             .attr("stroke", col)
 
             // Sets text
-            .data({"col": col ,"id": Data[i][1], "timestamp": Data[i][0], "x": x, "y": y, "i": i, "r": r, "time": time/1000 })
+            .data({col ,"xid": Data[i][1], "timestamp": Data[i][0], x, y, i, r, "time": time/1000, roundedY })
             .click(function (e) {
               console.log(this.data());
             })
             ;
 
-
         // Store data in object for fast search
-        dotObj = {"id": i, "xid": Data[i][1], "r": r};
+        dotObj = {"id": dotCounter, "xid": Data[i][1], "r": r, "y": y, "roundedY": roundedY};
         dotsByY[y] = dotObj;
-
-        roundedY = Math.round(y/precision);
 
         // Check if array has already been created
         if( !dotsByYRounded[roundedY] ) {
